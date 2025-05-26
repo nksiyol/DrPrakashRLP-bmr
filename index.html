@@ -3,487 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NK Wallpapers - Premium 4K HD Backgrounds</title>
-  <style>
-    :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --dark: #1e293b;
-      --darker: #0f172a;
-      --light: #f8fafc;
-      --gray: #94a3b8;
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background-color: var(--darker);
-      color: var(--light);
-      line-height: 1.6;
-    }
-    
-    header {
-      background: linear-gradient(135deg, var(--darker), var(--dark));
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    header::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://images.unsplash.com/photo-1623479322729-28b25c16b011?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
-      opacity: 0.15;
-      z-index: 0;
-    }
-    
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      position: relative;
-      z-index: 1;
-      background: linear-gradient(90deg, #ffffff, #3b82f6);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    
-    header p {
-      font-size: 1.1rem;
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-      opacity: 0.9;
-    }
-    
-    nav {
-      display: flex;
-      justify-content: center;
-      background-color: rgba(30, 41, 59, 0.8);
-      gap: 1rem;
-      padding: 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(8px);
-    }
-    
-    nav a {
-      color: var(--light);
-      text-decoration: none;
-      padding: 0.5rem 1.25rem;
-      border-radius: 50px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-    
-    nav a:hover {
-      background-color: rgba(37, 99, 235, 0.2);
-      color: white;
-    }
-    
-    nav a.active {
-      background-color: var(--primary);
-      color: white;
-    }
-    
-    .search-container {
-      max-width: 600px;
-      margin: 1.5rem auto;
-      padding: 0 1rem;
-    }
-    
-    .search-bar {
-      display: flex;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.3s ease;
-    }
-    
-    .search-bar:focus-within {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
-    }
-    
-    .search-bar input {
-      flex: 1;
-      padding: 0.75rem 1.25rem;
-      border: none;
-      background: transparent;
-      color: white;
-      font-size: 1rem;
-    }
-    
-    .search-bar input::placeholder {
-      color: var(--gray);
-    }
-    
-    .search-bar button {
-      padding: 0 1.5rem;
-      border: none;
-      background: var(--primary);
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    
-    .search-bar button:hover {
-      background: var(--primary-dark);
-    }
-    
-    .filters {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      padding: 0 1rem 1.5rem;
-    }
-    
-    .filter-btn {
-      padding: 0.5rem 1.25rem;
-      border-radius: 50px;
-      background: rgba(255, 255, 255, 0.1);
-      border: none;
-      color: var(--light);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .filter-btn:hover {
-      background: rgba(37, 99, 235, 0.2);
-    }
-    
-    .filter-btn.active {
-      background: var(--primary);
-      color: white;
-    }
-    
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-      padding: 1.5rem;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-    
-    .wallpaper {
-      background: rgba(30, 41, 59, 0.5);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    
-    .wallpaper:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
-    }
-    
-    .wallpaper img {
-      width: 100%;
-      height: auto;
-      display: block;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-    }
-    
-    .wallpaper-info {
-      padding: 1rem;
-    }
-    
-    .wallpaper-info h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    .wallpaper-info p {
-      color: var(--gray);
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .download-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background-color: var(--primary);
-      color: white;
-      padding: 0.75rem;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.3s ease;
-    }
-    
-    .download-btn:hover {
-      background-color: var(--primary-dark);
-    }
-    
-    .upload-btn {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background: var(--primary);
-      color: white;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-      z-index: 90;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border: none;
-    }
-    
-    .upload-btn:hover {
-      background: var(--primary-dark);
-      transform: scale(1.1);
-    }
-    
-    footer {
-      background: var(--dark);
-      text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 2rem;
-    }
-    
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    .footer-links a {
-      color: var(--gray);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    
-    .footer-links a:hover {
-      color: var(--light);
-    }
-    
-    .copyright {
-      color: var(--gray);
-      font-size: 0.9rem;
-    }
-    
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      
-      nav {
-        flex-wrap: wrap;
-      }
-      
-      .grid {
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      }
-    }
-  </style>
+  <title>NK Wallpapers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-900 text-white font-sans">
 
-  <header>
-    <h1>NK Wallpapers</h1>
-    <p>Discover and download stunning 4K HD wallpapers for all your devices</p>
-  </header>
-
-  <nav>
-    <a href="#" class="active">All</a>
-    <a href="#">Mobile</a>
-    <a href="#">Tablet</a>
-    <a href="#">Desktop</a>
-    <a href="#">Nature</a>
-    <a href="#">Abstract</a>
-    <a href="#">Minimal</a>
-  </nav>
-
-  <div class="search-container">
-    <div class="search-bar">
-      <input type="text" placeholder="Search wallpapers...">
-      <button>Search</button>
-    </div>
-  </div>
-
-  <div class="filters">
-    <button class="filter-btn active">All</button>
-    <button class="filter-btn">Latest</button>
-    <button class="filter-btn">Popular</button>
-    <button class="filter-btn">4K</button>
-    <button class="filter-btn">Dark</button>
-    <button class="filter-btn">Light</button>
-  </div>
-
-  <section class="grid">
-    <!-- Wallpaper 1 -->
-    <div class="wallpaper">
-      <img src="https://images.app.goo.gl/SGziup51bubMstUA7" alt="Mountain Landscape" loading="lazy">
-      <div class="wallpaper-info">
-        <h3>Mountain Sunset</h3>
-        <p>📱 🖥️ 4K • 3840×2160</p>
-      </div>
-      <a href="#" class="download-btn">↓ Download</a>
-    </div>
-    
-    <!-- Wallpaper 2 -->
-    <div class="wallpaper">
-      <img src="IMG_20241222_231142_580.jpg" alt="Forest Mist" loading="lazy">
-      <div class="wallpaper-info">
-        <h3>Forest Mist</h3>
-        <p>📱 🖥️ 4K • 3840×2160</p>
-      </div>
-      <a href="#" class="download-btn">↓ Download</a>
-    </div>
-    
-    <!-- Wallpaper 3 -->
-    <div class="wallpaper">
-      <img src="IMG_20250111_212501_334.jpg" alt="Ocean View" loading="lazy">
-      <div class="wallpaper-info">
-        <h3>Ocean View</h3>
-        <p>📱 🖥️ 4K • 3840×2160</p>
-      </div>
-      <a href="#" class="download-btn">↓ Download</a>
-    </div>
-    
-    <!-- Wallpaper 4 -->
-    <div class="wallpaper">
-      <img src="IMG_20250128_170103_534.jpg" alt="Colorful Sky" loading="lazy">
-      <div class="wallpaper-info">
-        <h3>Colorful Sky</h3>
-        <p>📱 🖥️ 4K • 3840×2160</p>
-      </div>
-      <a href="#" class="download-btn">↓ Download</a>
-    </div>
-    
-    <!-- Wallpaper 5 -->
-    <div class="wallpaper">
-      <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Flower Field" loading="lazy">
-      <div class="wallpaper-info">
-        <h3>Flower Field</h3>
-        <p>📱 🖥️ 4K • 3840×2160</p>
-      </div>
-      <a href="#" class="download-btn">↓ Download</a>
-    </div>
-    
-    <!-- Wallpaper 6 -->
-    <div class="wallpaper">
-      <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Rock Formation" loading="lazy">
-      <div class="wallpaper-info">
-        <h3>Rock Formation</h3>
-        <p>📱 🖥️ 4K • 3840×2160</p>
-      </div>
-      <a href="#" class="download-btn">↓ Download</a>
-    </div>
-    
-    <!-- Wallpaper 7 -->
-    <div class="wallpaper">
-      <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Person in Desert" loading="lazy">
-      <div class="wallpaper-info">
-        <h3>Desert Wanderer</h3>
-        <p>📱 🖥️ 4K • 3840×2160</p>
-      </div>
-      <a href="#" class="download-btn">↓ Download</a>
-    </div>
-    
-    <!-- Wallpaper 8 -->
-    <div class="wallpaper">
-      <img src="https://images.unsplash.com/photo-1511497584788-876760111969?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="City Skyline" loading="lazy">
-      <div class="wallpaper-info">
-        <h3>City Skyline</h3>
-        <p>📱 🖥️ 4K • 3840×2160</p>
-      </div>
-      <a href="#" class="download-btn">↓ Download</a>
+  <!-- Hero -->
+  <section class="relative h-96 bg-gradient-to-r from-indigo-900 to-purple-900 flex items-center justify-center text-center">
+    <div class="absolute inset-0 bg-black opacity-40"></div>
+    <div class="relative z-10 px-6">
+      <h1 class="text-5xl font-bold mb-4">NK Wallpapers</h1>
+      <p class="text-xl">Discover and download stunning 4K HD wallpapers for all your devices</p>
     </div>
   </section>
 
-  <button class="upload-btn" title="Upload Wallpaper">+</button>
-
-  <footer>
-    <div class="footer-links">
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms</a>
+  <!-- Tabs -->
+  <nav class="bg-gray-800 sticky top-0 z-50">
+    <div class="flex justify-center space-x-4 py-4">
+      <button class="px-4 py-2 bg-purple-700 rounded-full">All</button>
+      <button class="px-4 py-2 hover:bg-gray-700 rounded-full">Mobile</button>
+      <button class="px-4 py-2 hover:bg-gray-700 rounded-full">Tablet</button>
+      <button class="px-4 py-2 hover:bg-gray-700 rounded-full">Desktop</button>
+      <button class="px-4 py-2 hover:bg-gray-700 rounded-full">Nature</button>
+      <button class="px-4 py-2 hover:bg-gray-700 rounded-full">Abstract</button>
+      <button class="px-4 py-2 hover:bg-gray-700 rounded-full">Minimal</button>
     </div>
-    <p class="copyright">© 2023 NK Wallpapers. All rights reserved.</p>
+  </nav>
+
+  <!-- Search -->
+  <div class="my-6 px-4 text-center">
+    <input type="text" placeholder="Search wallpapers..." class="w-1/2 p-3 rounded-lg bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"/>
+    <button class="ml-2 px-4 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg">Search</button>
+  </div>
+
+  <!-- Filters -->
+  <div class="flex justify-center space-x-3 mb-6">
+    <button class="bg-purple-700 px-4 py-2 rounded-full">All</button>
+    <button class="bg-gray-700 hover:bg-purple-700 px-4 py-2 rounded-full">Latest</button>
+    <button class="bg-gray-700 hover:bg-purple-700 px-4 py-2 rounded-full">Popular</button>
+    <button class="bg-gray-700 hover:bg-purple-700 px-4 py-2 rounded-full">4K</button>
+    <button class="bg-gray-700 hover:bg-purple-700 px-4 py-2 rounded-full">Dark</button>
+    <button class="bg-gray-700 hover:bg-purple-700 px-4 py-2 rounded-full">Light</button>
+  </div>
+
+  <!-- Wallpaper Grid -->
+  <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 mb-12">
+    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1kBojJmdmlJkx0auDQYJJslXIDHAf04CtWScRNCzZqg&s" class="w-full h-56 object-cover"/>
+      <div class="p-4">
+        <h2 class="text-lg font-semibold mb-2">Mountain Sunset</h2>
+        <p class="text-sm text-gray-400 mb-2">📱 🖥️ 4K • 3840×2160</p>
+        <button class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">Download</button>
+      </div>
+    </div>
+    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-aWWIrErdhxUWWHYrgVt-sflLeAbZ4OaMzxVmdabuw&s" class="w-full h-56 object-cover"/>
+      <div class="p-4">
+        <h2 class="text-lg font-semibold mb-2">City Skyline</h2>
+        <p class="text-sm text-gray-400 mb-2">📱 🖥️ 4K • 3840×2160</p>
+        <button class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">Download</button>
+      </div>
+    </div>
+    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHpZtw6I1XSOTnXiHKM72zYLbQk9Nudsl-8MRIJFlbtw&s" class="w-full h-56 object-cover"/>
+      <div class="p-4">
+        <h2 class="text-lg font-semibold mb-2">Abstract Lines</h2>
+        <p class="text-sm text-gray-400 mb-2">📱 🖥️ 4K • 3840×2160</p>
+        <button class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">Download</button>
+      </div>
+    </div>
+    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1YruP3oTDAtK5cr2saDYNBnPyShekiIDaBIp7LT7LIg&s" class="w-full h-56 object-cover"/>
+      <div class="p-4">
+        <h2 class="text-lg font-semibold mb-2">Nature View</h2>
+        <p class="text-sm text-gray-400 mb-2">📱 🖥️ 4K • 3840×2160</p>
+        <button class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">Download</button>
+      </div>
+    </div>
+    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD7I8WAhkJdnruPBuo0YetwZNGnZ-eEkbtg42v_u0GcA&s" class="w-full h-56 object-cover"/>
+      <div class="p-4">
+        <h2 class="text-lg font-semibold mb-2">Color Waves</h2>
+        <p class="text-sm text-gray-400 mb-2">📱 🖥️ 4K • 3840×2160</p>
+        <button class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">Download</button>
+      </div>
+    </div>
+    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-aWWIrErdhxUWWHYrgVt-sflLeAbZ4OaMzxVmdabuw&s" class="w-full h-56 object-cover"/>
+      <div class="p-4">
+        <h2 class="text-lg font-semibold mb-2">Minimal Gradient</h2>
+        <p class="text-sm text-gray-400 mb-2">📱 🖥️ 4K • 3840×2160</p>
+        <button class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">Download</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upload Button -->
+  <button class="fixed bottom-6 right-6 bg-purple-600 hover:bg-purple-700 text-white text-3xl w-14 h-14 rounded-full shadow-lg" onclick="alert('Upload functionality coming soon!')">+</button>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-center py-6 text-sm text-gray-400">
+    <div class="space-x-4 mb-2">
+      <a href="#" class="hover:underline">Home</a>
+      <a href="#" class="hover:underline">About</a>
+      <a href="#" class="hover:underline">Contact</a>
+      <a href="#" class="hover:underline">Privacy Policy</a>
+      <a href="#" class="hover:underline">Terms</a>
+    </div>
+    <p>&copy; 2025 NK Wallpapers. All rights reserved.</p>
   </footer>
 
-  <script>
-    // Simple filter functionality
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        // In a real implementation, this would filter the wallpapers
-      });
-    });
-    
-    // Nav link active state
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-        link.classList.add('active');
-      });
-    });
-    
-    // Upload button functionality
-    const uploadBtn = document.querySelector('.upload-btn');
-    uploadBtn.addEventListener('click', () => {
-      alert('Upload functionality would go here!');
-      // In a real implementation, this would open a modal or new page for uploads
-    });
-    
-    // Lazy loading for images
-    if ('loading' in HTMLImageElement.prototype) {
-      // Native lazy loading is supported
-      const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-      lazyImages.forEach(img => {
-        img.src = img.dataset.src;
-      });
-    } else {
-      // Fallback for browsers without native lazy loading
-      const lazyLoad = target => {
-        const io = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const img = entry.target;
-              img.src = img.dataset.src;
-              observer.disconnect();
-            }
-          });
-        });
-        io.observe(target);
-      };
-      const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-      lazyImages.forEach(lazyLoad);
-    }
-  </script>
 </body>
 </html>
