@@ -23,11 +23,34 @@
     }
     /* Smooth hover effect for cards */
     .wallpaper-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease;
     }
     .wallpaper-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3);
+    }
+    /* Continuous colorful lights effect for wallpaper frames */
+    @keyframes colorfulGlow {
+      0% { box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; }
+      20% { box-shadow: 0 0 10px #ff9900, 0 0 20px #ff9900; }
+      40% { box-shadow: 0 0 10px #33cc33, 0 0 20px #33cc33; }
+      60% { box-shadow: 0 0 10px #3399ff, 0 0 20px #3399ff; }
+      80% { box-shadow: 0 0 10px #cc33cc, 0 0 20px #cc33cc; }
+      100% { box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; }
+    }
+    .wallpaper-card {
+      animation: colorfulGlow 3s infinite ease-in-out;
+    }
+    /* Colorful background pulse for section transition */
+    @keyframes gradientPulse {
+      0% { background: linear-gradient(45deg, rgba(255, 0, 0, 0.1), rgba(255, 153, 0, 0.1)); }
+      20% { background: linear-gradient(45deg, rgba(255, 153, 0, 0.1), rgba(51, 204, 51, 0.1)); }
+      40% { background: linear-gradient(45deg, rgba(51, 204, 51, 0.1), rgba(51, 153, 255, 0.1)); }
+      60% { background: linear-gradient(45deg, rgba(51, 153, 255, 0.1), rgba(204, 51, 204, 0.1)); }
+      80% { background: linear-gradient(45deg, rgba(204, 51, 204, 0.1), rgba(255, 0, 0, 0.1)); }
+      100% { background: linear-gradient(45deg, rgba(255, 0, 0, 0.1), rgba(255, 153, 0, 0.1)); }
+    }
+    .section-transition {
+      animation: gradientPulse 1.5s ease-in-out;
     }
     /* Hide inactive sections */
     .hidden {
@@ -38,12 +61,12 @@
 <body class="bg-gray-900 text-white font-sans">
 
   <!-- Hero Section -->
-  <section class="relative h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center text-center animate__animated animate__fadeIn">
+  <section class="relative h-[60vh] bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center text-center animate__animated animate__fadeIn">
     <div class="absolute inset-0 bg-black opacity-50"></div>
     <div class="relative z-10 px-6">
       <h1 class="text-6xl font-extrabold mb-4 animate__animated animate__bounceInDown">NK Wallpapers</h1>
       <p class="text-2xl animate__animated animate__fadeInUp animate__delay-1s">Discover and download stunning HD wallpapers for all your devices</p>
-      <a href="#wallpapers" class="mt-6 inline-block bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-full text-lg font-semibold animate__animated animate__pulse animate__infinite">Explore Now</a>
+      <a href="#wallpapers" class="mt-6 inline-block bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-full text-lg font-semibold animate__animated animate__heartBeat animate__infinite hover:animate__heartBeat" onclick="this.classList.add('animate__bounce'); setTimeout(() => this.classList.remove('animate__bounce'), 1000);">Explore Now</a>
     </div>
   </section>
 
@@ -76,7 +99,7 @@
   <!-- Wallpaper Grids -->
   <div id="wallpapers">
     <!-- All Wallpapers Grid -->
-    <section id="all" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 mb-12">
+    <section id="all" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 mb-12 animate__animated animate__fadeInUp">
       <!-- Card 1 -->
       <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp">
         <img src="Mobile 02.jpg" class="w-full h-64 object-cover"/>
@@ -103,7 +126,7 @@
         <div class="p-4">
           <h2 class="text-lg font-semibold mb-2">Abstract Lines</h2>
           <p class="text-sm text-gray-400 mb-2">📱 🖥️ HD • Varies</p>
-          <a href="Desktop 03.jpg" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block transition-all duration-300">Download</a>
+          <a href="Desktop 01.jpg" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block transition-all duration-300">Download</a>
         </div>
       </div>
 
@@ -179,7 +202,7 @@
     </section>
 
     <!-- Mobile Wallpapers Grid -->
-    <section id="mobile" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 mb-12 hidden">
+    <section id="mobile" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 mb-12 hidden animate__animated animate__fadeInUp">
       <!-- Mobile Card 1 -->
       <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp">
         <img src="Mobile 01.jpg" class="w-full h-80 object-cover"/>
@@ -282,9 +305,9 @@
     </section>
 
     <!-- Tablet Wallpapers Grid -->
-    <section id="tablet" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 mb-12 hidden">
+    <section id="tablet" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 mb-12 hidden animate__animated animate__fadeInUp">
       <!-- Tablet Card 1 -->
-      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp">
+      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card">
         <img src="Tab 01.jpg" class="w-full h-64 object-cover"/>
         <div class="p-4">
           <h2 class="text-lg font-semibold mb-2">Tablet 1</h2>
@@ -314,7 +337,7 @@
       </div>
 
       <!-- Tablet Card 4 -->
-      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp">
+      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card">
         <img src="Tab 04.jpg" class="w-full h-64 object-cover"/>
         <div class="p-4">
           <h2 class="text-lg font-semibold mb-2">Tablet 4</h2>
@@ -341,10 +364,8 @@
           <p class="text-sm text-gray-400 mb-2">📳 HD • 2048×1536</p>
           <a href="Tab 06.jpg" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block transition-all duration-300">Download</a>
         </div>
-      </div>
-
       <!-- Tablet Card 7 -->
-      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp">
+      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card">
         <img src="https://encrypted.tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" class="w-full h-64 object-cover"/>
         <div class="p-4">
           <h2 class="text-lg font-semibold mb-2">Upload soon</h2>
@@ -367,30 +388,30 @@
       <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp animate__delay-2s">
         <img src="https://encrypted.tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" class="w-full h-64 object-cover"/>
         <div class="p-4">
-          <h2 class="text-lg font-semibold mb-2">Upload soonh</h2>
+          <h2 class="text-lg font-semibold mb-2">Upload soon</h2>
           <p class="text-sm text-gray-400 mb-2">📳 HD • 2048×1536</p>
           <a href="https://encrypted.tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block transition-all duration-300">Download</a>
         </div>
       </div>
 
       <!-- Tablet Card 10 -->
-      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp">
+      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card">
         <img src="https://encrypted.tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" class="w-full h-64 object-cover"/>
         <div class="p-4">
           <h2 class="text-lg font-semibold mb-2">Upload soon</h2>
           <p class="text-sm text-gray-400 mb-2">📳 HD • 2048×1536</p>
-          <a href="https://encrypted.tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block transition-all duration-300">Download</a>
+          <a href="https://encrypted.tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e5f6b3c8d7e9f" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block transition-all duration-300">Download</a>
         </div>
       </div>
     </section>
 
     <!-- Desktop Wallpapers Grid -->
-    <section id="desktop" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 mb-12 hidden">
+    <section id="desktop" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 mb-12 hidden animate__animated">
       <!-- Desktop Card 1 -->
-      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp">
+      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card">
         <img src="Desktop 01.jpg" class="w-full h-64 object-cover"/>
         <div class="p-4">
-          <h2 class="text-lg font-semibold mb-2">Desktop 1</h2>
+          <h2 class="text-lg font-semibold mb-2">Desktop"> 1</h2>
           <p class="text-sm text-gray-400 mb-2">🖥️ HD • 1920×1080</p>
           <a href="Desktop 01.jpg" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block transition-all duration-300">Download</a>
         </div>
@@ -398,29 +419,29 @@
 
       <!-- Desktop Card 2 -->
       <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp animate__delay-1s">
-        <img src="Desktop 02.jpg" class="w-full h-64 object-cover"/>
+        <img src="Desktop 02.jpg"  class="w-full h-64 object-cover"/>
         <div class="p-4">
-          <h2 class="text-lg font-semibold mb-2">Desktop 2</h2>
+          <h2 class="text-lg font-semibold mb-2">Desktop">2</h2>
           <p class="text-sm text-gray-400 mb-2">🖥️ HD • 1920×1080</p>
-          <a href="Desktop 02.jpg" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block transition-all duration-300">Download</a>
+          <a href="Desktop 02.jpg"  download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block transition-all duration-300">Download</a>
         </div>
       </div>
 
       <!-- Desktop Card 3 -->
       <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp animate__delay-2s">
-        <img src="Desktop 03.jpg" class="w-full h-64 object-cover"/>
+        <img src="Desktop 03.jpg"  class="w-full h-64 object-cover"/>
         <div class="p-4">
-          <h2 class="text-lg font-semibold mb-2">Desktop 3</h2>
+          <h2 class="text-lg font-semibold mb-2">Desktop</h2>
           <p class="text-sm text-gray-400 mb-2">🖥️ HD • 1920×1080</p>
           <a href="Desktop 03.jpg" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block transition-all duration-300">Download</a>
         </div>
       </div>
 
       <!-- Desktop Card 4 -->
-      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp">
+      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card">
         <img src="Desktop 04.jpg" class="w-full h-64 object-cover"/>
         <div class="p-4">
-          <h2 class="text-lg font-semibold mb-2">Desktop 4</h2>
+          <h2 class="text-lg font-semibold mb-2">Desktop</h2>
           <p class="text-sm text-gray-400 mb-2">🖥️ HD • 1920×1080</p>
           <a href="Desktop 04.jpg" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block transition-all duration-300">Download</a>
         </div>
@@ -447,7 +468,7 @@
       </div>
 
       <!-- Desktop Card 7 -->
-      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp">
+      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card">
         <img src="https://encrypted.tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" class="w-full h-64 object-cover"/>
         <div class="p-4">
           <h2 class="text-lg font-semibold mb-2">Upload soon</h2>
@@ -477,7 +498,7 @@
       </div>
 
       <!-- Desktop Card 10 -->
-      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp">
+      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card">
         <img src="https://encrypted.tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" class="w-full h-64 object-cover"/>
         <div class="p-4">
           <h2 class="text-lg font-semibold mb-2">Upload soon</h2>
@@ -489,15 +510,16 @@
   </div>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-center py-8 text-sm text-gray-400 animate__animated animate__fadeInUp">
-    <div class="space-x-6 mb-4">
-      <a href="#" class="hover:underline hover:text-purple-500 transition-all duration-300">Home</a>
-      <a href="#" class="hover:underline hover:text-purple-500 transition-all duration-300">About</a>
-      <a href="mailto:nsiyol376@gmail.com" class="hover:underline hover:text-purple-500 transition-all duration-300">Contact</a>
-      <a href="#" class="hover:underline hover:text-purple-500 transition-all duration-300">Privacy Policy</a>
-      <a href="#" class="hover:underline hover:text-purple-500 transition-all duration-300">Terms</a>
+  <footer class="bg-gray-800 text-center py-8 py-6 flex-wrap">
+    <div class="flex justify-center gap-4 mb-6 flex-wrap>
+      <a href="#" class="text-lg font-semibold px-6 py-3 rounded-full bg-gray-600 hover:bg-purple-600 hover:text-white hover:shadow-lg transition-all duration-300">Home</a>
+      <a href="#" class="text-lg font-semibold px-6 py-6 py-3 rounded-full bg-gray-600 hover:bg-purple-600 hover:text-white hover:shadow-lg transition-all duration-300">About</a>
+      <a href="mailto:nsiyol376@gmail.com" class="text-lg font-semibold px-6 py-3 rounded-full bg-purple-600 hover:bg-purple-300 hover:text-black transition-all duration-300 hover:shadow-lg">Contact</a>
+      <a href="#" href="#" class="text-lg font-semibold px-600 py-3 rounded-full bg-gray-600 hover:bg-purple-600 hover:text-white hover:shadow-lg transition-all duration-300">Instagram</a>
+      <a href="#" class="text-lg font-semibold px-400 py-3 rounded-full bg-gray-600 hover:bg-purple-600 hover:text-white hover:shadow-lg transition-all duration-300">Privacy</a> Policy</a>
+      <a href="#" class="text-lg font-semibold px-600 py-3 rounded-full bg-gray-600 hover:bg-purple-600 hover:text-white hover:shadow-lg transition-all duration-300">Terms</a>
     </div>
-    <p>© 2025 NK Wallpapers. All rights reserved.</p>
+    <p class="text-lg">© 2025 NK Wallpapers. All rights reserved.</p>
   </footer>
 
   <!-- JavaScript for Tab Switching -->
@@ -514,11 +536,21 @@
         button.classList.add('bg-purple-600');
         button.classList.remove('hover:bg-purple-700');
 
-        // Hide all sections
-        sections.forEach(section => section.classList.add('hidden'));
-        // Show the selected section
+        // Hide all sections and remove transition
+        sections.forEach(section => {
+          section.classList.add('hidden');
+          section.classList.remove('section-transition', 'animate__fadeInUp');
+        });
+
+        // Show the selected section with animation
         const tab = button.getAttribute('data-tab');
-        document.getElementById(tab).classList.remove('hidden');
+        const selectedSection = document.getElementById(tab);
+        selectedSection.classList.remove('hidden');
+        selectedSection.classList.add('section-transition', 'animate__animated', 'animate__fadeInUp');
+        // Remove transition class after animation
+        setTimeout(() => {
+          selectedSection.classList.remove('section-transition');
+        }, 1500);
       });
     });
   </script>
