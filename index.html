@@ -3,206 +3,189 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NK HD Wallpapers</title>
+  <title>NK Wallpapers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css"/>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f2f2f2;
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
     }
-    
-    /* New Logo Styles */
-    .site-logo {
-      height: 50px;
-      margin-right: 15px;
-      vertical-align: middle;
+    ::-webkit-scrollbar-track {
+      background: #1f2937;
     }
-    
-    /* Original Styles Remain Same */
-    header {
-      background-color: #1e1e1e;
-      color: white;
-      padding: 20px;
-      text-align: center;
+    ::-webkit-scrollbar-thumb {
+      background: #7c3aed;
+      border-radius: 4px;
     }
-    nav {
-      display: flex;
-      justify-content: center;
-      background-color: #333;
-      gap: 20px;
-      padding: 10px;
+    ::-webkit-scrollbar-thumb:hover {
+      background: #6d28d9;
     }
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 5px;
+    /* Smooth hover effect for cards */
+    .wallpaper-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    nav a:hover {
-      background-color: #555;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-    .wallpaper {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .wallpaper img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .download-btn {
-      background-color: #007bff;
-      color: white;
-      padding: 10px;
-      display: block;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .download-btn:hover {
-      background-color: #0056b3;
+    .wallpaper-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3);
     }
   </style>
 </head>
-<body>
-
-  <header>
-    <!-- Added Logo Here -->
-    <img src="Screenshot_20250526-124302.png" class="site-logo">
-    <h1>Easylly Download All Wallpapers</h1>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NK Wallpapers</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
 <body class="bg-gray-900 text-white font-sans">
 
-  <!-- Hero -->
-  <section class="relative h-96 bg-gradient-to-r from-indigo-900 to-purple-900 flex items-center justify-center text-center">
-    <div class="absolute inset-0 bg-black opacity-40"></div>
+  <!-- Hero Section -->
+  <section class="relative h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center text-center animate__animated animate__fadeIn">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
     <div class="relative z-10 px-6">
-      <h1 class="text-5xl font-bold mb-4">NK Wallpapers</h1>
-      <p class="text-xl">Discover and download stunning 4K HD wallpapers for all your devices</p>
+      <h1 class="text-6xl font-extrabold mb-4 animate__animated animate__bounceInDown">NK Wallpapers</h1>
+      <p class="text-2xl animate__animated animate__fadeInUp animate__delay-1s">Discover and download stunning 4K HD wallpapers for all your devices</p>
+      <a href="#wallpapers" class="mt-6 inline-block bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-full text-lg font-semibold animate__animated animate__pulse animate__infinite">Explore Now</a>
     </div>
   </section>
 
   <!-- Tabs -->
-  <nav class="bg-gray-800 sticky top-0 z-50">
-    <div class="flex justify-center space-x-4 py-4">
-      <button class="px-4 py-2 bg-purple-700 rounded-full">All</button>
-      <button class="px-4 py-2 hover:bg-gray-700 rounded-full">Mobile</button>
-      <button class="px-4 py-2 hover:bg-gray-700 rounded-full">Tablet</button>
-      <button class="px-4 py-2 hover:bg-gray-700 rounded-full">Desktop</button>
-      <button class="px-4 py-2 hover:bg-gray-700 rounded-full">Nature</button>
-      <button class="px-4 py-2 hover:bg-gray-700 rounded-full">Abstract</button>
-      <button class="px-4 py-2 hover:bg-gray-700 rounded-full">Minimal</button>
+  <nav class="bg-gray-800 sticky top-0 z-50 py-4 animate__animated animate__fadeInDown">
+    <div class="flex justify-center space-x-4">
+      <button class="px-6 py-2 bg-purple-600 hover:bg-purple-700 rounded-full transition-all duration-300">All</button>
+      <button class="px-6 py-2 hover:bg-purple-700 rounded-full transition-all duration-300">Mobile</button>
+      <button class="px-6 py-2 hover:bg-purple-700 rounded-full transition-all duration-300">Tablet</button>
+      <button class="px-6 py-2 hover:bg-purple-700 rounded-full transition-all duration-300">Desktop</button>
+      <button class="px-6 py-2 hover:bg-purple-700 rounded-full transition-all duration-300">Nature</button>
+      <button class="px-6 py-2 hover:bg-purple-700 rounded-full transition-all duration-300">Abstract</button>
+      <button class="px-6 py-2 hover:bg-purple-700 rounded-full transition-all duration-300">Minimal</button>
     </div>
   </nav>
 
   <!-- Search -->
-  <div class="my-6 px-4 text-center">
-    <input type="text" placeholder="Search wallpapers..." class="w-1/2 p-3 rounded-lg bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"/>
-    <button class="ml-2 px-4 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg">Search</button>
+  <div class="my-8 px-4 text-center animate__animated animate__fadeIn">
+    <input type="text" placeholder="Search wallpapers..." class="w-3/4 md:w-1/2 p-4 rounded-lg bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"/>
+    <button class="ml-3 px-6 py-4 bg-purple-600 hover:bg-purple-700 rounded-lg transition-all duration-300">Search</button>
   </div>
 
   <!-- Filters -->
-  <div class="flex justify-center space-x-3 mb-6">
-    <button class="bg-purple-700 px-4 py-2 rounded-full">All</button>
-    <button class="bg-gray-700 hover:bg-purple-700 px-4 py-2 rounded-full">Latest</button>
-    <button class="bg-gray-700 hover:bg-purple-700 px-4 py-2 rounded-full">Popular</button>
-    <button class="bg-gray-700 hover:bg-purple-700 px-4 py-2 rounded-full">4K</button>
-    <button class="bg-gray-700 hover:bg-purple-700 px-4 py-2 rounded-full">Dark</button>
-    <button class="bg-gray-700 hover:bg-purple-700 px-4 py-2 rounded-full">Light</button>
+  <div class="flex justify-center space-x-3 mb-8 animate__animated animate__fadeInUp">
+    <button class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-full transition-all duration-300">All</button>
+    <button class="bg-gray-700 hover:bg-purple-700 px-4 py-2 rounded-full transition-all duration-300">Latest</button>
+    <button class="bg-gray-700 hover:bg-purple-700 px-4 py-2 rounded-full transition-all duration-300">Popular</button>
+    <button class="bg-gray-700 hover:bg-purple-700 px-4 py-2 rounded-full transition-all duration-300">4K</button>
+    <button class="bg-gray-700 hover:bg-purple-700 px-4 py-2 rounded-full transition-all duration-300">Dark</button>
+    <button class="bg-gray-700 hover:bg-purple-700 px-4 py-2 rounded-full transition-all duration-300">Light</button>
   </div>
 
   <!-- Wallpaper Grid -->
-  <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 mb-12">
+  <section id="wallpapers" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 mb-12">
     <!-- Card 1 -->
-    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md">
-      <img src="IMG_20241222_230332_701.jpg" class="w-full h-56 object-cover"/>
+    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" class="w-full h-64 object-cover"/>
       <div class="p-4">
         <h2 class="text-lg font-semibold mb-2">Mountain Sunset</h2>
         <p class="text-sm text-gray-400 mb-2">📱 🖥️ 4K • 3840×2160</p>
-        <a href="IMG_20241222_230332_701.jpg" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block">Download</a>
+        <a href="https://encrypted-tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block transition-all duration-300">Download</a>
       </div>
     </div>
 
     <!-- Card 2 -->
-    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-aWWIrErdhxUWWHYrgVt-sflLeAbZ4OaMzxVmdabuw&s" class="w-full h-56 object-cover"/>
+    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp animate__delay-1s">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" class="w-full h-64 object-cover"/>
       <div class="p-4">
         <h2 class="text-lg font-semibold mb-2">City Skyline</h2>
         <p class="text-sm text-gray-400 mb-2">📱 🖥️ 4K • 3840×2160</p>
-        <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-aWWIrErdhxUWWHYrgVt-sflLeAbZ4OaMzxVmdabuw&s" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block">Download</a>
+        <a href="https://encrypted-tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block transition-all duration-300">Download</a>
       </div>
     </div>
 
     <!-- Card 3 -->
-    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHpZtw6I1XSOTnXiHKM72zYLbQk9Nudsl-8MRIJFlbtw&s" class="w-full h-56 object-cover"/>
+    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp animate__delay-2s">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" class="w-full h-64 object-cover"/>
       <div class="p-4">
         <h2 class="text-lg font-semibold mb-2">Abstract Lines</h2>
         <p class="text-sm text-gray-400 mb-2">📱 🖥️ 4K • 3840×2160</p>
-        <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHpZtw6I1XSOTnXiHKM72zYLbQk9Nudsl-8MRIJFlbtw&s" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block">Download</a>
+        <a href="https://encrypted-tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block transition-all duration-300">Download</a>
       </div>
     </div>
 
     <!-- Card 4 -->
-    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1YruP3oTDAtK5cr2saDYNBnPyShekiIDaBIp7LT7LIg&s" class="w-full h-56 object-cover"/>
+    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" class="w-full h-64 object-cover"/>
       <div class="p-4">
         <h2 class="text-lg font-semibold mb-2">Nature View</h2>
         <p class="text-sm text-gray-400 mb-2">📱 🖥️ 4K • 3840×2160</p>
-        <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1YruP3oTDAtK5cr2saDYNBnPyShekiIDaBIp7LT7LIg&s" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block">Download</a>
+        <a href="https://encrypted-tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block transition-all duration-300">Download</a>
       </div>
     </div>
 
     <!-- Card 5 -->
-    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD7I8WAhkJdnruPBuo0YetwZNGnZ-eEkbtg42v_u0GcA&s" class="w-full h-56 object-cover"/>
+    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp animate__delay-1s">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" class="w-full h-64 object-cover"/>
       <div class="p-4">
         <h2 class="text-lg font-semibold mb-2">Color Waves</h2>
         <p class="text-sm text-gray-400 mb-2">📱 🖥️ 4K • 3840×2160</p>
-        <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD7I8WAhkJdnruPBuo0YetwZNGnZ-eEkbtg42v_u0GcA&s" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block">Download</a>
+        <a href="https://encrypted-tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block transition-all duration-300">Download</a>
       </div>
     </div>
 
     <!-- Card 6 -->
-    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-aWWIrErdhxUWWHYrgVt-sflLeAbZ4OaMzxVmdabuw&s" class="w-full h-56 object-cover"/>
+    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp animate__delay-2s">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" class="w-full h-64 object-cover"/>
       <div class="p-4">
         <h2 class="text-lg font-semibold mb-2">Minimal Gradient</h2>
         <p class="text-sm text-gray-400 mb-2">📱 🖥️ 4K • 3840×2160</p>
-        <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-aWWIrErdhxUWWHYrgVt-sflLeAbZ4OaMzxVmdabuw&s" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block">Download</a>
+        <a href="https://encrypted-tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block transition-all duration-300">Download</a>
       </div>
     </div>
-  </section>
 
-  <!-- Upload Button -->
-  <button class="fixed bottom-6 right-6 bg-purple-600 hover:bg-purple-700 text-white text-3xl w-14 h-14 rounded-full shadow-lg" onclick="alert('Upload functionality coming soon!')">+</button>
-
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-center py-6 text-sm text-gray-400">
-    <div class="space-x-4 mb-2">
-      <a href="#" class="hover:underline">Home</a>
-      <a href="#" class="hover:underline">About</a>
-      <a href="#" class="hover:underline">Contact</a>
-      <a href="#" class="hover:underline">Privacy Policy</a>
-      <a href="#" class="hover:underline">Terms</a>
+    <!-- Card 7 -->
+    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" class="w-full h-64 object-cover"/>
+      <div class="p-4">
+        <h2 class="text-lg font-semibold mb-2">Ocean Breeze</h2>
+        <p class="text-sm text-gray-400 mb-2">📱 🖥️ 4K • 3840×2160</p>
+        <a href="https://encrypted-tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block transition-all duration-300">Download</a>
+      </div>
     </div>
-    <p>&copy; 2025 NK Wallpapers. All rights reserved.</p>
+
+    <!-- Card 8 -->
+    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp animate__delay-1s">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" class="w-full h-64 object-cover"/>
+      <div class="p-4">
+        <h2 class="text-lg font-semibold mb-2">Starry Night</h2>
+        <p class="text-sm text-gray-400 mb-2">📱 🖥️ 4K • 3840×2160</p>
+        <a href="https://encrypted-tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block transition-all duration-300">Download</a>
+      </div>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp animate__delay-2s">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" class="w-full h-64 object-cover"/>
+      <div class="p-4">
+        <h2 class="text-lg font-semibold mb-2">Urban Lights</h2>
+        <p class="text-sm text-gray-400 mb-2">📱 🖥️ 4K • 3840×2160</p>
+        <a href="https://encrypted-tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block transition-all duration-300">Download</a>
+      </div>
+    </div>
+
+    <!-- Card 10 -->
+    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-md wallpaper-card animate__animated animate__fadeInUp">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" class="w-full h-64 object-cover"/>
+      <div class="p-4">
+        <h2 class="text-lg font-semibold mb-2">Forest Path</h2>
+        <p class="text-sm text-gray-400 mb-2">📱 🖥️ 4K • 3840×2160</p>
+        <a href="https://encrypted-tbn0.gstatic.com/images?q=1v7b9e8f2a-3c4b-4f7d-9a2e-5f6b3c8d7e9f" download class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded inline-block transition-all duration-300">Download</a>
+      </div>
+    </div>
+  </section><!-- Footer -->
+  <footer class="bg-gray-800 text-center py-8 text-sm text-gray-400 animate__animated animate__fadeInUp">
+    <div class="space-x-6 mb-4">
+      <a href="#" class="hover:underline hover:text-purple-500 transition-all duration-300">Home</a>
+      <a href="#" class="hover:underline hover:text-purple-500 transition-all duration-300">About</a>
+      <a href="mailto:nsiyol376@gmail.com" class="hover:underline hover:text-purple-500 transition-all duration-300">Contact</a>>
+      <a href="#" class="hover:underline hover:text-purple-500 transition-all duration-300">Privacy Policy</a>
+      <a href="#" class="hover:underline hover:text-purple-500 transition-all duration-300">Terms</a>
+    </div>
+    <p>© 2025 NK Wallpapers. All rights reserved.</p>
   </footer>
 
 </body>
 </html>
+
+  
